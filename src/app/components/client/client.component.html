@@ -1,9 +1,8 @@
-<!-- <div *ngFor="let element of lst.slice().reverse()">
-    <b>{{ element.nombre }}</b> <span>{{ element.apellido }}</span>
-    <p>Id: {{ element.id }}</p>
-</div> -->
- <div class="dp-body">
+<div class="dp-body">
     <h1>Clientes</h1>
+    <div>
+        <button mat-raised-button color="primary" (click)="openAdd()">Nuevo</button>
+    </div>
     <table mat-table [dataSource]="lst" class="mat-elevation-z4">
         <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef>Identificador</th>

@@ -2,6 +2,7 @@
 .dp-body {
     box-sizing: border-box;
     padding: 50px 200px;
+    display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 20px;
     h1 {
         font-weight: 800;
         font-size: 2rem;

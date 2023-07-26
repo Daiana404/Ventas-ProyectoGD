@@ -12,6 +12,10 @@ import { ClientComponent } from './components/client/client.component';
 // material
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -28,6 +32,10 @@ import { HttpClientModule } from '@angular/common/http';
     // material 
     MatSidenavModule, 
     MatTableModule,
+    MatDialogModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSnackBarModule,
 
     HttpClientModule // solicitudes http para la conexión del servicio
   ],

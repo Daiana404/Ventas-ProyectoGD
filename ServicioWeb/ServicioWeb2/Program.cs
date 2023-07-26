@@ -12,14 +12,32 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<VentasRealContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("conn")));
 
+//Configuracion de los cors (investigar)
+var MyCors = "ReglasCors";
+builder.Services.AddCors(opt =>
+{
+  opt.AddPolicy(name: MyCors, builder =>
+  {
+    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+  });
+
+});
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-  app.UseSwagger();
-  app.UseSwaggerUI();
-}
+//if (app.Environment.IsDevelopment())
+//{
+
+//}
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
+
+//Se activan los cors
+app.UseCors(MyCors);
 
 app.UseAuthorization();
 

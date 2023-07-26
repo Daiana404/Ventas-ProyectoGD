@@ -7,10 +7,10 @@ namespace ServicioWeb2.Models;
 public partial class Cliente
 {
     public long Id { get; set; }
+  
+    public string? Nombre { get; set; } 
 
-    public string Nombre { get; set; } = null!;
-
-    public string Apellido { get; set; } = null!;
+    public string? Apellido { get; set; }
 
     [JsonIgnore]
     public virtual ICollection<Venta> Venta { get; set; } = new List<Venta>();

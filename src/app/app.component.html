@@ -1,11 +1,15 @@
 <!-- Menu -->
 <mat-drawer-container>
+  <!-- #drawer me imagino que es como el id -->
   <mat-drawer #drawer mode="side">
+    <!-- referencia de los anchor: [routerLink]="['ruta...']" -->
     <a [routerLink]="['/home']">Inicio</a><br/>
-    <a [routerLink]="['/cliente']"href="#">Cliente</a>
+    <a [routerLink]="['/cliente']">Cliente</a>
   </mat-drawer>
   <div>
+    <!-- evento de Angular (evento)="" -->
     <button (click)="drawer.toggle();">Mostrar/Ocultar</button>
+    <!-- ruta -->
     <router-outlet></router-outlet>
   </div>
 </mat-drawer-container>

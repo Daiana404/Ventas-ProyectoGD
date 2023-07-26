@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiclientService } from 'src/app/services/apiclient.service';
+import { Response } from '../../models/response'
 
 @Component({
   selector: 'app-client',
@@ -8,16 +9,21 @@ import { ApiclientService } from 'src/app/services/apiclient.service';
 })
 export class ClientComponent implements OnInit {
 
+  public lst: any[''];
+  public columnas = ['id', 'nombre', 'apellido'];
   constructor(
     private apiCliente: ApiclientService
   ) { 
-    apiCliente.getClientes().subscribe(response => {
-      console.log(response);
-    })
-    // :x 
   }
 
   ngOnInit(): void {
+    this.getClientes()
+  }
 
+  getClientes() {
+    // suscribe debido al observable
+    this.apiCliente.getClientes().subscribe(response => {
+      this.lst = response.data;
+    })
   }
 }

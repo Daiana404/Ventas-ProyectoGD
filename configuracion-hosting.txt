@@ -1,0 +1,7 @@
+workstation id=VentasReal.mssql.somee.com;
+packet size=4096;
+user id=Franquito08_SQLLogin_1;
+pwd=xxbc8a7hqj;
+data source=VentasReal.mssql.somee.com;
+persist security info=False;
+initial catalog=VentasReal

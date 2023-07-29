@@ -117,3 +117,4 @@ D:\Facultad\Programacion\Sistema venta real\Ventas-ProyectoGD\ServicioWeb\Servic
 D:\Facultad\Programacion\Sistema venta real\Ventas-ProyectoGD\ServicioWeb\ServicioWeb2\obj\Debug\net6.0\ServicioWeb2.pdb
 D:\Facultad\Programacion\Sistema venta real\Ventas-ProyectoGD\ServicioWeb\ServicioWeb2\obj\Debug\net6.0\ServicioWeb2.genruntimeconfig.cache
 D:\Facultad\Programacion\Sistema venta real\Ventas-ProyectoGD\ServicioWeb\ServicioWeb2\obj\Debug\net6.0\ref\ServicioWeb2.dll
+D:\Facultad\Programacion\Sistema venta real\Ventas-ProyectoGD\ServicioWeb\ServicioWeb2\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

@@ -5,13 +5,14 @@ using ServicioWeb2.Models.Response;
 using ServicioWeb2.Models.Request;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Cors;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace ServicioWeb2.Controllers
 {
   [EnableCors("ReglasCors")]
   [Route("api/cliente")]
   [ApiController]
+  [Authorize] //Solo se podra hacer la solicitud http mediante el token del usuario
   public class ClienteController : ControllerBase
   {
     //Se crea un objeto del tipo contexto de la base de datos
@@ -43,7 +44,8 @@ namespace ServicioWeb2.Controllers
           oRespuesta.Data = lt;
         }
       }
-      catch (Exception ex) {
+      catch (Exception ex)
+      {
         oRespuesta.Mensaje = ex.Message;
       }
 
@@ -61,9 +63,9 @@ namespace ServicioWeb2.Controllers
       {
         using (_dbcontext)
         {
-          
+
           oRespuesta.Data = _dbcontext.Clientes.Find(id);
-          if(oRespuesta.Data == null) return Ok(oRespuesta);
+          if (oRespuesta.Data == null) return Ok(oRespuesta);
 
           oRespuesta.Exito = 1;
         }
@@ -98,7 +100,7 @@ namespace ServicioWeb2.Controllers
       }
       catch (Exception ex)
       {
-        oRespuesta.Mensaje=ex.Message;
+        oRespuesta.Mensaje = ex.Message;
       }
 
       return Ok(oRespuesta);
@@ -120,7 +122,7 @@ namespace ServicioWeb2.Controllers
 
           //Por si vienen valores nulos se deja el que ya tenia
           oCliente.Nombre = oModel.Nombre is null ? oCliente.Nombre : oModel.Nombre;
-          oCliente.Apellido = oModel.Apellido is null ? oCliente.Apellido: oModel.Apellido;
+          oCliente.Apellido = oModel.Apellido is null ? oCliente.Apellido : oModel.Apellido;
 
           //_dbcontext.Entry(oCliente).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
           _dbcontext.Clientes.Update(oCliente);

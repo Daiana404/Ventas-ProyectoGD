@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,13 +21,11 @@ public partial class VentasRealContext : DbContext
 
     public virtual DbSet<Producto> Productos { get; set; }
 
+    public virtual DbSet<Usuario> Usuarios { get; set; }
+
     public virtual DbSet<Venta> Venta { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        
-    }
-    
+  protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -93,6 +91,31 @@ public partial class VentasRealContext : DbContext
             entity.Property(e => e.Preciounitario)
                 .HasColumnType("decimal(16, 2)")
                 .HasColumnName("preciounitario");
+        });
+
+        modelBuilder.Entity<Usuario>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__usuario__3213E83F2C2A5BF0");
+
+            entity.ToTable("usuario");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Apellido)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("apellido");
+            entity.Property(e => e.Contraseña)
+                .HasMaxLength(256)
+                .IsUnicode(false)
+                .HasColumnName("contraseña");
+            entity.Property(e => e.Email)
+                .HasMaxLength(100)
+                .IsUnicode(false)
+                .HasColumnName("email");
+            entity.Property(e => e.Nombre)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("nombre");
         });
 
         modelBuilder.Entity<Venta>(entity =>
